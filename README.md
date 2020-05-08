@@ -1,3 +1,9 @@
+# Running Script
+Run python script with the bus route number
+ex.) in 1 terminal run ```python3.7 main.py 45```
+
+in another terminal run ```python3.7 main.py 233```
+
 # Setting Up 
 run
 
