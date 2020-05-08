@@ -25,3 +25,6 @@ class TransitKafkaClient:
     def produce_message(self, message):
         self.producer.produce(message)
 
+    def consume_message(self):
+        return self.topic.get_simple_consumer()
+
