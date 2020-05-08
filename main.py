@@ -5,6 +5,6 @@ def main():
     client = TransitKafkaClient()
     client.produce_message("Hello Live Bus Stream!".encode('ascii'))
     BusStream = MetroAPI()
-    BusStream.get_vehicle_locations()
+    print(BusStream.get_vehicle_location())
 
 main()    

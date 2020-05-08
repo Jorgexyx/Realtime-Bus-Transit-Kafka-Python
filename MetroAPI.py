@@ -12,8 +12,8 @@ class MetroAPI:
 
     #example of complete url
     #http://api.metro.net/agencies/lametro/routes/704/vehicles/
-    def get_vehicle_location(self, routeNumber):
-        vehicle_url = self.base_url + "routes/" + str(704) + "/vehicles/"
+    def get_vehicle_location(self, routeNumber=704):
+        vehicle_url = self.base_url + "routes/" + str(routeNumber) + "/vehicles/"
         response = requests.get(vehicle_url)
-        return response.content
+        return response.json()["items"][0]
 
