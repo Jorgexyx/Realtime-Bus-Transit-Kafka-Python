@@ -13,6 +13,9 @@ def main():
     BusStream = MetroAPI()
     while True:
         transit_data = BusStream.get_vehicle_location()
+        if len(transit_data) == 0:
+            print("Transit is not operating. Exiting")
+            return
         message = json.dumps(transit_data)
         client.produce_message(message.encode('ascii'))
         time.sleep(.5)

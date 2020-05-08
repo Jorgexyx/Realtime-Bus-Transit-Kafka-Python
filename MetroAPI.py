@@ -16,5 +16,6 @@ class MetroAPI:
     def get_vehicle_location(self, routeNumber=704):
         vehicle_url = self.base_url + "routes/" + str(routeNumber) + "/vehicles/"
         response = requests.get(vehicle_url)
-        return response.json()["items"][0]
+
+        return [] if len(response.json()["items"]) == 0 else  response.json()["items"][0]
 
