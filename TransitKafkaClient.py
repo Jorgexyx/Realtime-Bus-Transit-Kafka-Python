@@ -9,7 +9,6 @@ from pykafka import KafkaClient
     Have a kafka topic called: liveBusData (look at README for creaing kafka topic)
     
 @todo
-    - Add producer
     - Add consumer
 """
 class TransitKafkaClient:
