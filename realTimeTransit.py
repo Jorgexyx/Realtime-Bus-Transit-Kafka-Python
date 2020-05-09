@@ -20,7 +20,6 @@ def main():
 
         message = json.dumps(transit_data)
         client.produce_message(message.encode('ascii'))
-        time.sleep(1.5)
         print("Produced Message  🌾 ")
 
 main()    

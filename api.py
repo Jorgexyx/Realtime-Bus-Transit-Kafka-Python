@@ -19,7 +19,6 @@ def getTransitEventStream():
     def event():
         for message in client.consume_message():
             print("sending message: ", message)
-            #print(message.value.decode())
             yield 'data:{0}\n\n'.format(message.value.decode())
     return Response(event(), mimetype="text/event-stream")
 

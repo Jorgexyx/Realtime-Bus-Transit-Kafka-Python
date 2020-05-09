@@ -8,25 +8,34 @@ const LeafletMap = () => {
   const [markers, setMarkers]  = useState({})
 
   const source = new EventSource('/api/transit'); //ENTER YOUR TOPICNAME HERE
-  source.addEventListener('message', (e) => {
-    const { route_id, longitude, latitude } = JSON.parse(e.data)
-    console.log(longitude, latitude)
+
+  const setMarker = (route_id, longitude, latitude) => {
     setMarkers((prev) => ({
       ...prev, 
       [route_id]: {longitude, latitude}
     }))
-  }, false);
+  }
 
-  const position = [-118.2801742, 34.1643375]
+  source.onmessage = (e) => {
+    const { route_id, longitude, latitude } = JSON.parse(e.data)
+    if (markers[route_id]) {
+      if (markers[route_id].longitude !== longitude || markers[route_id].latitude !== latitude) {
+        setMarker(route_id, longitude, latitude)
+      }
+    } else {
+      setMarker(route_id, longitude, latitude)
+    }
+  }
+
   return(
-    <Map center={position} zoom={13}>
+    <Map center={[34.052235, -118.243683]} zoom={13}>
       <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
       />
 
       {Object.entries(markers).map( ([route_id, {longitude, latitude}]) => 
-          <Marker id={route_id} position={[longitude, latitude]}>
+          <Marker key={route_id} position={[Number(latitude), Number(longitude)]}>
             <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
           </Marker>
       )}
