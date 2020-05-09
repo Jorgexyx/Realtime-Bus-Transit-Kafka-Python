@@ -1,3 +1,8 @@
+# LIVE LA METRO TRANSIT WITH KAFKA, REACT, PYTHON
+
+
+![Preview of react app](images/preview.png)
+
 # Running Script
 Run python script with the bus route number
 ex.) in 1 terminal run ```python3.7 main.py 45```
