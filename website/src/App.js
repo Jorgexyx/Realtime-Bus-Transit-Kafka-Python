@@ -21,7 +21,7 @@ const LeafletMap = () => {
   }
 
   return(
-    <Map center={[34.052235, -118.243683]} zoom={13}>
+    <Map center={[34.052235, -118.243683]} zoom={11}>
       <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
