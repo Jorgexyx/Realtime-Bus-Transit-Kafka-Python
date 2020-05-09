@@ -33,6 +33,6 @@ def main():
     while True:
         transit_data, location = fetchRouteLocation(BusStream, route_number)       
         if location[0] != current_location[0] or location[1] != current_location[1]:
-            current_location - location
+            current_location = location
             produce_route_location(transit_data, client)
 main()    

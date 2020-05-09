@@ -11,25 +11,11 @@ const LeafletMap = () => {
 
   source.onmessage = (e) => {
     const { route_id, longitude, latitude } = JSON.parse(e.data)
-
+    console.log("Updating")
     setMarkers((prev) => {
-      if (prev[route_id] !== undefined) {
-        if (prev[route_id].longitude !== longitude || prev[route_id].latitude !== latitude) {
-          console.log("update")
-            return {
-              ...prev,
-              [route_id]:{ longitude, latitude }
-            }
-        } else {
-          return prev
-        }
-      } else {
-        console.log("new route id")
-        console.log(prev)
-        return {
-          ...prev,
-          [route_id]:{ longitude, latitude }
-        }
+      return {
+        ...prev,
+        [route_id]:{ longitude, latitude }
       }
     })
   }
