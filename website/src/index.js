@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+var source = new EventSource('/api/transit'); //ENTER YOUR TOPICNAME HERE
+source.addEventListener('message', function(e){
+  console.log(e)
+}, false);
 
 ReactDOM.render(
   <React.StrictMode>

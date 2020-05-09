@@ -1,10 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+var source = new EventSource('/api/transit'); //ENTER YOUR TOPICNAME HERE
+source.addEventListener('message', function(e){
+  console.log('Message');
+}, false);
+
+
 
 function App() {
-  const source = new EventSource('/api/transit'); 
-  source.onmessage = e => console.log("STREAMING")
+
 
   return (
     <div className="App">

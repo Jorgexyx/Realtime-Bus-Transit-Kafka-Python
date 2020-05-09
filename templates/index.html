@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+  <html>
+    <div>
+      hello world
+    <div>
+  </html>
+<script type="text/javascript">
+  console.log("s");
+  const source = new EventSource("/api/transit")
+  source.addEventListener('message', function(e){
+    console.log(e)
+  })
+</script>
+
+
