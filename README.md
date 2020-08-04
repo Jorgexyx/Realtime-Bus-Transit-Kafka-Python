@@ -18,6 +18,11 @@ run
 ## LocalHost
 Default is localhost:2181
 
+## Run zookeeper before running kafka
+```
+zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
+```
+
 ## Creating a Kafka Topic CLI
 ```kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test```
 
