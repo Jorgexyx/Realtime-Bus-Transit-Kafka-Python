@@ -24,3 +24,13 @@ Default is localhost:2181
 ## Listening to a Kafka Producer
 ```kafka-console-consumer --bootstrap-server localhost:9092 --topic liveBusData --from-beginning```
 
+## Installing kafka on mac with brew
+Install Java
+```
+brew cask install java
+```
+
+Install kafka
+```
+brew install kafka
+```
